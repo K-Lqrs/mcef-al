@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.ririfa.mcefal.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "GameRendererMixin",
+    "MinecraftClientMixin",
+    "SplashOverlayMixin",
+    "WindowMixin"
+  ]
+}

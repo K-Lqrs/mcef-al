@@ -1,0 +1,27 @@
+[versions]
+kotlin = "2.1.0"
+loom = "1.9-SNAPSHOT"
+
+minecraft = "1.21.4"
+yarn = "1.21.4+build.8"
+fabric-api = "0.114.3+1.21.4"
+fabric-loader = "0.16.10"
+
+mcef = "1.3.3-1.21.4"
+beacon = "1.5.1"
+classGraph = "4.8.179"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+yarn = { module = "net.fabricmc:yarn", version.ref = "yarn" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+mcef = { module = "com.github.CCBlueX:mcef", version.ref = "mcef" }
+beacon = { module = "net.ririfa:beacon", version.ref = "beacon" }
+classGraph = { module = "io.github.classgraph:classgraph", version.ref = "classGraph" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+fabric-loom = { id = "fabric-loom", version.ref = "loom" }
