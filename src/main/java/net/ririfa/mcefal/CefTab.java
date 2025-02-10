@@ -14,9 +14,9 @@ import static net.ccbluex.liquidbounce.mcef.MCEF.mc;
 @SuppressWarnings("unused")
 public class CefTab<T extends Category> {
     private final MCEFBrowser mcefBrowser;
-    final CefBrowser browser;
+    private final CefBrowser browser;
     TabDim dim;
-    final String name;
+    private final String name;
     private final T category;
 
     private final Identifier texture;

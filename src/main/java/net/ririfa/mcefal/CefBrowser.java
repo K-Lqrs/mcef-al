@@ -8,9 +8,9 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public class CefBrowser implements IEventHandler {
-    final List<CefTab<?>> tabs = new ArrayList<>();
-    final BrowserDrawer drawer;
-    CefTab<?> activeTab;
+    private final List<CefTab<?>> tabs = new ArrayList<>();
+    private final BrowserDrawer drawer;
+    private CefTab<?> activeTab;
 
     public CefBrowser() {
         this.drawer = new BrowserDrawer(() -> this);
@@ -19,9 +19,6 @@ public class CefBrowser implements IEventHandler {
     public <T extends Category> CefTab<T> createTab(String url, TabDim dim, int frameRate, String name, T category) {
         var tab = new CefTab<>(this, url, dim, frameRate, name, category);
         tabs.add(tab);
-        // Make sure to add the tab to the drawer
-        // This process is very important. Because the BrowserDrawer needs to know which Tab it should draw.
-        drawer.tabs.add(tab);
         if (activeTab == null) {
             activeTab = tab;
         }

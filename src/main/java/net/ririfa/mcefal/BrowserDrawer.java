@@ -16,8 +16,6 @@ import net.ririfa.mcefal.events.FrameBufferResizeEvent;
 import net.ririfa.mcefal.events.ScreenRenderEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -25,7 +23,6 @@ import static net.ccbluex.liquidbounce.mcef.MCEF.mc;
 
 public class BrowserDrawer implements IEventHandler {
     public final Supplier<CefBrowser> browser;
-    final List<CefTab<?>> tabs = new ArrayList<>();
 
     private final RenderPhase.Transparency BROWSER_TRANSPARENCY = new RenderPhase.Transparency(
             "browser_transparency",
@@ -66,7 +63,7 @@ public class BrowserDrawer implements IEventHandler {
                 this,
                 ScreenRenderEvent.class,
                 event -> {
-                    for (CefTab<?> tab : tabs) {
+                    for (CefTab<?> tab : browser.get().getTabs()) {
                         var scaleFactor = (float) mc.getWindow().getScaleFactor();
                         var x = tab.dim.x() / scaleFactor;
                         var y = tab.dim.y() / scaleFactor;
@@ -88,7 +85,7 @@ public class BrowserDrawer implements IEventHandler {
                 this,
                 FrameBufferResizeEvent.class,
                 event -> {
-                    for (CefTab<?> tab : tabs) {
+                    for (CefTab<?> tab : browser.get().getTabs()) {
                         tab.resize(event.width, event.height);
                     }
                 }
