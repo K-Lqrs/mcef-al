@@ -37,7 +37,7 @@ public enum MCEFAL {
 
         this.packageName = packageName;
 
-        EventBus.initialize(new String[]{"net.rk4z.mcefal"}, 2);
+        EventBus.initialize(new String[]{"net.ririfa.mcefal"}, 2);
 
         MCEFResourceManager resMan = Optional.ofNullable(MCEF.INSTANCE.getResourceManager())
                 .orElseGet(() -> {
